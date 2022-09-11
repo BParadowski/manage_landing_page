@@ -1,0 +1,19 @@
+@use "../mixins" as *;
+
+.container {
+  background-color: var(--clr-bright-red);
+  font-family: var(--ff-body);
+
+  @include mq-medium {
+    background-color: var(--clr-v-pale-red);
+  }
+
+  .hello {
+    font-size: var(--fs-900);
+  }
+}
+
+.twoCollumns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
