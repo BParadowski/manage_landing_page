@@ -1,22 +1,19 @@
 import Link from "next/link";
 import Image from "next/image";
+import styles from "../styles/header.module.scss";
+import logo from "../public/images/logo.svg";
 
 export default function Header() {
   return (
-    <header>
-      <div>
+    <header className={styles.header}>
+      <div className={styles.container}>
         <Link href="/">
-          <a aria-label="Home page">
-            <Image
-              src="/images/logo.svg"
-              alt="Manage logo"
-              width={110}
-              height={18}
-            />
+          <a aria-label="Home page" className={styles.logo}>
+            <Image src={logo} alt="Manage logo" />
           </a>
         </Link>
-        <nav aria-label="Primary">
-          <ul role="list">
+        <nav aria-label="Primary" className={styles.nav}>
+          <ul role="list" className={styles.links}>
             <li>
               <Link href="/pricing">
                 <a>Pricing </a>
@@ -28,7 +25,7 @@ export default function Header() {
             <li>Community</li>
           </ul>
         </nav>
-        <button>Get Started</button>
+        <button className={styles.button}>Get Started</button>
       </div>
     </header>
   );

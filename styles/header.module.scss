@@ -1,0 +1,25 @@
+@use "./mixins" as *;
+
+.header {
+  background-color: var(--clr-v-light-gray);
+}
+.container {
+  display: flex;
+  place-items: center;
+
+  width: min(var(--max-width), 100% - var(--margin-inline-min) * 2);
+  margin-inline: auto;
+
+  .logo {
+    width: 110px;
+    height: 18px;
+  }
+
+  .nav {
+    flex: auto;
+  }
+
+  .links {
+    display: flex;
+  }
+}
