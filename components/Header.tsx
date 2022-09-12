@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import styles from "../styles/header.module.scss";
+import styles from "./header.module.scss";
 import logo from "../public/images/logo.svg";
 
 export default function Header() {
