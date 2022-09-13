@@ -35,7 +35,7 @@
     --fs-body: var(--fs-400);
     --fs-nav: var(--fs-300);
     --fs-primary-heading: clamp(2rem, 3vw + 1rem, var(--fs-900));
-    --fs-secondary-heading: var(--fs-600);
+    --fs-secondary-heading: clamp(1.2rem, 2.3vw + 0.7rem, var(--fs-600));
   }
 
   --max-width: 1110px;

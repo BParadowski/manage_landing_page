@@ -32,7 +32,7 @@ const Home: NextPage = () => {
       <section className={styles["section-secondary"]}>
         <div className={styles.container}>
           <div className={styles.collumns}>
-            <div>
+            <div className={styles.text}>
               <h2>What’s different about Manage?</h2>
               <p>
                 Manage provides all the functionality your team needs, without
@@ -40,7 +40,7 @@ const Home: NextPage = () => {
                 product teams.
               </p>
             </div>
-            <div>
+            <div className={styles.list}>
               <ul role="list">
                 <li>
                   <h3>Track company-wide progress</h3>
