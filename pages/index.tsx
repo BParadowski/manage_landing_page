@@ -1,4 +1,5 @@
 import type { NextPage } from "next";
+import Slider from "../components/home/Slider";
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/pages/Home.module.scss";
@@ -24,7 +25,12 @@ const Home: NextPage = () => {
               <button className={styles.button}>Get Started</button>
             </div>
             <div className={styles.picture}>
-              <Image src={illustration} alt="" layout="responsive" />
+              <Image
+                priority={true}
+                src={illustration}
+                alt=""
+                layout="responsive"
+              />
             </div>
           </div>
         </div>
@@ -72,7 +78,13 @@ const Home: NextPage = () => {
           </div>
         </div>
       </section>
-      <section>
+      <section className={styles["carousel-section"]}>
+        <div className={styles.container}>
+          <h2>What they’ve said</h2>
+        </div>
+        {/* Slider is outside of the container so 
+        that it can go over the whole page length*/}
+        <Slider />
         <div className={styles.container}>
           <button className={styles.button}>Get Started</button>
         </div>

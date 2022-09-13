@@ -211,18 +211,37 @@
   }
 }
 
+.carousel-section {
+  margin-top: 4rem;
+  h2 {
+    font-size: var(--fs-secondary-heading);
+    font-weight: var(--fw-bold);
+    line-height: 1.2;
+  }
+
+  .container {
+    text-align: center;
+  }
+}
+
 .cta {
-  display: grid;
-  grid-template-areas: "text" "button";
-  place-items: center;
   height: 25rem;
 
   background-color: var(--clr-bright-red);
   background-image: url("../../public/images/bg-simplify-section-mobile.svg");
   background-size: contain;
   background-repeat: no-repeat;
+
+  .container {
+    height: 100%;
+    display: grid;
+    grid-template-areas: "text" "button";
+    place-items: center;
+  }
+
   .text {
     grid-area: text;
+    align-self: flex-end;
     font-size: var(--fs-600);
     font-weight: var(--fw-bold);
     color: var(--clr-v-light-gray);
@@ -232,14 +251,30 @@
 
   @include white-button(ctaBtn) {
     grid-area: button;
+    align-self: flex-start;
   }
 
   @include mq(medium) {
     height: 14rem;
-    grid-template-columns: 1fr auto;
-    grid-template-areas: "text button";
     background-size: cover;
     background-position: center;
     background-image: url("../../public/images/bg-simplify-section-desktop.svg");
+
+    .container {
+      grid-template-columns: 1fr auto;
+      grid-template-areas: "text button";
+    }
+
+    .text {
+      justify-self: flex-start;
+      align-self: auto;
+
+      padding: 0;
+      max-width: 20ch;
+    }
+
+    .ctaBtn {
+      align-self: auto;
+    }
   }
 }
