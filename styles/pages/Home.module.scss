@@ -1,27 +1,94 @@
 @use "../mixins" as *;
 @include container;
-@include white-button(cta__button);
 @include red-button(button);
 
 .main {
   background-color: var(--clr-v-light-gray);
   font-family: var(--ff-body);
+  color: var(--clr-dark-blue);
+  font-size: var(--fs-body);
 }
 
-.collumns {
-  display: grid;
-  gap: 1rem;
+.section-primary {
+  .collumns {
+    display: grid;
+    gap: var(--gap-100);
+    grid-template-areas:
+      "picture"
+      "text";
 
-  @include mq(medium) {
-    grid-auto-flow: column;
-    grid-auto-columns: 1fr;
+    @include mq(medium) {
+      grid-auto-flow: column;
+      grid-auto-columns: 1fr;
+      grid-template-areas: "text picture";
+    }
+
+    .text {
+      grid-area: text;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      text-align: center;
+
+      h1 {
+        font-size: var(--fs-primary-heading);
+        font-weight: var(--fw-bold);
+        line-height: 1.2;
+      }
+
+      p {
+        font-size: var(--fs-400);
+        opacity: 0.5;
+        margin-top: 0.5rem;
+        line-height: 1.75rem;
+      }
+
+      button {
+        margin-top: 2rem;
+      }
+
+      @include mq(medium) {
+        text-align: left;
+        place-items: flex-start;
+
+        p {
+          margin-top: 1.5rem;
+          max-width: 32ch;
+        }
+        button {
+          margin-top: 2.5rem;
+        }
+      }
+    }
+
+    .picture {
+      grid-area: picture;
+    }
+  }
+}
+
+.section-secondary {
+  margin-top: 5.5rem;
+
+  .collumns {
+    display: grid;
+
+    @include mq(medium) {
+      grid-auto-flow: column;
+      grid-auto-columns: 1fr;
+    }
   }
 }
 
 .cta {
+  @include white-button(ctaBtn);
+
   background-color: var(--clr-bright-red);
 
-  & .cta__text {
+  .text {
     font-size: var(--fs-600);
     font-weight: var(--fw-bold);
     color: var(--clr-v-light-gray);

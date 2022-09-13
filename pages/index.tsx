@@ -12,10 +12,10 @@ const Home: NextPage = () => {
         <meta name="description" content="Manage, landing page" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <section>
+      <section className={styles["section-primary"]}>
         <div className={styles.container}>
           <div className={styles.collumns}>
-            <div>
+            <div className={styles.text}>
               <h1>Bring everyone together to build better products.</h1>
               <p>
                 Manage makes it simple for software teams to plan day-to-day
@@ -23,13 +23,13 @@ const Home: NextPage = () => {
               </p>
               <button className={styles.button}>Get Started</button>
             </div>
-            <div>
+            <div className={styles.picture}>
               <Image src={illustration} alt="" layout="responsive" />
             </div>
           </div>
         </div>
       </section>
-      <section>
+      <section className={styles["section-secondary"]}>
         <div className={styles.container}>
           <div className={styles.collumns}>
             <div>
@@ -79,10 +79,8 @@ const Home: NextPage = () => {
       </section>
       <section className={styles.cta}>
         <div className={styles.container}>
-          <p className={styles.cta__text}>
-            Simplify how your team works today.
-          </p>
-          <button className={styles.cta__button}>Get Started</button>
+          <p className={styles.text}>Simplify how your team works today.</p>
+          <button className={styles.ctaBtn}>Get Started</button>
         </div>
       </section>
     </main>

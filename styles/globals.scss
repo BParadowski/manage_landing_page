@@ -34,7 +34,7 @@
   @include mq(medium) {
     --fs-body: var(--fs-400);
     --fs-nav: var(--fs-300);
-    --fs-primary-heading: var(--fs-900);
+    --fs-primary-heading: clamp(2rem, 3vw + 1rem, var(--fs-900));
     --fs-secondary-heading: var(--fs-600);
   }
 
