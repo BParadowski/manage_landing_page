@@ -1,5 +1,71 @@
-@mixin mq-medium {
-  @media (min-width: 50em) {
+@use "sass:map";
+
+$media-queries: (
+  "mobile-only": "max-width: 50em",
+  "medium": "min-width: 50em",
+);
+
+@mixin mq($type) {
+  $query: map.get($media-queries, $type);
+  @media only screen and ($query) {
+    @content;
+  }
+}
+
+@mixin container() {
+  .container {
+    width: min(var(--max-width), 100% - var(--margin-inline-min) * 2);
+    margin-inline: auto;
+    @content;
+  }
+}
+
+@mixin white-button($classname: white-button) {
+  .#{$classname} {
+    padding-inline: 2rem;
+    padding-block: 0.75rem;
+
+    border-radius: 100vw;
+    border: none;
+
+    background-color: var(--clr-v-light-gray);
+
+    color: var(--clr-bright-red);
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-button);
+
+    box-shadow: none;
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--clr-v-light-gray);
+      color: var(--clr-pale-red);
+    }
+    @content;
+  }
+}
+
+@mixin red-button($classname: red-button) {
+  .#{$classname} {
+    padding-inline: 2rem;
+    padding-block: 0.75rem;
+
+    border-radius: 100vw;
+    border: none;
+
+    background-color: var(--clr-bright-red);
+
+    color: var(--clr-v-light-gray);
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-button);
+
+    box-shadow: 0 0.375rem 0.75rem var(--clr-pale-red);
+
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--clr-pale-red);
+    }
     @content;
   }
 }

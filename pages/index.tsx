@@ -21,7 +21,7 @@ const Home: NextPage = () => {
                 Manage makes it simple for software teams to plan day-to-day
                 tasks while keeping the larger team goals in view.
               </p>
-              <button>Get Started</button>
+              <button className={styles.button}>Get Started</button>
             </div>
             <div>
               <Image src={illustration} alt="" layout="responsive" />
@@ -74,7 +74,7 @@ const Home: NextPage = () => {
       </section>
       <section>
         <div className={styles.container}>
-          <button>Get Started</button>
+          <button className={styles.button}>Get Started</button>
         </div>
       </section>
       <section className={styles.cta}>

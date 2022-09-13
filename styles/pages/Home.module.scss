@@ -1,4 +1,7 @@
 @use "../mixins" as *;
+@include container;
+@include white-button(cta__button);
+@include red-button(button);
 
 .main {
   background-color: var(--clr-v-light-gray);
@@ -9,40 +12,18 @@
   display: grid;
   gap: 1rem;
 
-  @include mq-medium {
+  @include mq(medium) {
     grid-auto-flow: column;
     grid-auto-columns: 1fr;
   }
 }
 
-.container {
-  width: min(var(--max-width), 100% - var(--margin-inline-min) * 2);
-  margin-inline: auto;
-}
-
 .cta {
   background-color: var(--clr-bright-red);
-
-  .container {
-    width: min(var(--max-width), 100% - var(--margin-inline-min) * 2);
-    margin-inline: auto;
-    background-color: var(--clr-bright-red);
-  }
 
   & .cta__text {
     font-size: var(--fs-600);
     font-weight: var(--fw-bold);
     color: var(--clr-v-light-gray);
-  }
-
-  & .cta__button {
-    background-color: var(--clr-v-light-gray);
-    color: var(--clr-bright-red);
-    box-shadow: none;
-
-    &:hover {
-      background-color: var(--clr-v-light-gray);
-      color: var(--clr-pale-red);
-    }
   }
 }

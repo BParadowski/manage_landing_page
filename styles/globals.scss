@@ -31,7 +31,7 @@
   --fs-primary-heading: var(--fs-600);
   --fs-secondary-heading: var(--fs-500);
 
-  @include mq-medium {
+  @include mq(medium) {
     --fs-body: var(--fs-400);
     --fs-nav: var(--fs-300);
     --fs-primary-heading: var(--fs-900);
@@ -40,29 +40,16 @@
 
   --max-width: 1110px;
   --margin-inline-min: 1rem;
+  --gap-100: 1rem;
+  --gap-200: 2rem;
+  --gap-300: 3rem;
+  --gap-400: 4rem;
+  --gap-500: 5rem;
+
+  @include mq(medium) {
+    --margin-inline-min: 2rem;
+  }
 
   font-size: 16px;
   font-family: var(--ff-primary);
-}
-
-button {
-  padding-inline: 2rem;
-  padding-block: 0.75rem;
-
-  border-radius: 100vw;
-  border: none;
-
-  background-color: var(--clr-bright-red);
-
-  color: var(--clr-v-light-gray);
-  font-weight: var(--fw-bold);
-  font-size: var(--fs-button);
-
-  box-shadow: 0 0.375rem 0.75rem var(--clr-pale-red);
-
-  cursor: pointer;
-
-  &:hover {
-    background-color: var(--clr-pale-red);
-  }
 }
