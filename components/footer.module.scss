@@ -1,16 +1,10 @@
 @use "../styles/mixins" as *;
-@use "sass:list";
 
-$icons: ("facebook", "youtube", "twitter", "pinterest", "instagram");
-
-@each $website in $icons {
-  .#{$website} {
-    background-image: url("../public/images/icon-#{$website}.svg");
-  }
-}
 .footer {
   background-color: var(--clr-v-dark-blue);
   color: var(--clr-v-light-gray);
+  padding-top: 3rem;
+  padding-bottom: 2rem;
 
   a {
     font: inherit;
@@ -29,25 +23,126 @@ $icons: ("facebook", "youtube", "twitter", "pinterest", "instagram");
   .grid {
     display: grid;
     grid-auto-flow: column;
+    row-gap: 3rem;
+    grid-template-areas:
+      "form form"
+      "links links"
+      "social social"
+      "logo logo"
+      "rights rights";
 
-    .manage-logo {
+    place-items: center;
+
+    @include mq(medium) {
+      grid-template-areas:
+        "logo links links form"
+        "social links links rights";
     }
-    .logos {
-      display: flex;
-      li {
-        .logo {
-          transform: scale(1.6);
-          fill: var(--clr-v-light-gray);
+    .manage-logo {
+      grid-area: logo;
+      @include mq(medium) {
+        margin-top: 0.25rem;
+        // Above: fixing strange logo alignment
+        place-self: flex-start;
+      }
+    }
 
-          @include mq(mobile-only) {
-            transform: scale(1);
+    .logos-container {
+      display: flex;
+      justify-content: center;
+      grid-area: social;
+      @include mq(medium) {
+        // Magic numbers below becasue I can't deal with SVG behaviour. Learn later.
+        margin-top: 12px;
+        margin-left: -12px;
+        place-self: flex-start;
+      }
+    }
+    .links-container {
+      grid-area: links;
+      @include mq(medium) {
+        align-self: flex-start;
+        padding-inline: 0.5rem;
+      }
+
+      .links {
+        display: flex;
+        gap: clamp(0.5rem, 3vw + 0.7rem, 3rem);
+        ul {
+          flex: auto;
+          display: flex;
+          flex-direction: column;
+
+          gap: 0.65rem;
+          min-width: 7rem;
+        }
+
+        @include mq(medium) {
+          ul {
+            min-width: 6.5rem;
           }
         }
-        &:hover {
-          .logo {
-            fill: var(--clr-bright-red);
-          }
+      }
+    }
+
+    .form {
+      grid-area: form;
+      display: flex;
+      align-items: center;
+      .input {
+        max-width: calc(100vw - var(--margin-inline-min) * 2 - 6rem);
+        margin-right: 0.5rem;
+        height: 2.5rem;
+        border-radius: 100vw;
+        padding-inline: 1rem;
+        font-size: 13px;
+        width: clamp(13rem, 35vw, 16rem);
+
+        @include mq(medium) {
+          width: clamp(13rem, 20vw, 16rem);
         }
+      }
+      .button {
+        height: 2.5rem;
+      }
+      @include mq(medium) {
+        place-self: flex-end;
+      }
+    }
+
+    .copyright {
+      grid-area: rights;
+      opacity: 0.5;
+      @include mq(medium) {
+        place-self: flex-end;
+      }
+    }
+  }
+}
+
+.logos {
+  display: flex;
+  gap: clamp(0.25rem, 7vw, 2rem);
+  justify-content: center;
+  max-width: 19rem;
+
+  @include mq(medium) {
+    max-width: 10rem;
+    margin-left: 12px;
+    gap: 0;
+  }
+  li {
+    .logo {
+      transform: scale(1.6);
+      fill: var(--clr-v-light-gray);
+
+      @include mq(medium) {
+        transform: scale(1);
+      }
+    }
+    &:hover {
+      .logo {
+        fill: var(--clr-bright-red);
       }
     }
   }
