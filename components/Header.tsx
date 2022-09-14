@@ -17,13 +17,11 @@ export default function Header() {
           </a>
         </Link>
 
-        <nav
-          aria-label="Primary"
-          className={menuOpen ? styles.navOpen : styles.nav}
-        >
+        <nav aria-label="Primary" className={styles.nav} data-isOpen={menuOpen}>
           <ul
             role="list"
-            className={menuOpen ? styles.linksOpen : styles.links}
+            className={styles.links}
+            data-isOpen={menuOpen}
             id="primary-navigation"
           >
             <li>
@@ -31,14 +29,30 @@ export default function Header() {
                 <a>Pricing </a>
               </Link>
             </li>
-            <li>Product</li>
-            <li>About us</li>
-            <li>Careers</li>
-            <li>Community</li>
+            <li>
+              <Link href="/">
+                <a>Product </a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/">
+                <a>About us </a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/">
+                <a>Careers </a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/">
+                <a>Community</a>
+              </Link>
+            </li>
           </ul>
         </nav>
         <button
-          className={menuOpen ? styles.mobileNavOpen : styles.mobileNav}
+          className={styles["mobile-nav-button"]}
           onClick={() => setMenuOpen((state) => !state)}
           aria-controls="primary-navigation"
           aria-label="Menu"

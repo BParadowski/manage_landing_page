@@ -1,5 +1,6 @@
 @use "../styles/mixins" as *;
 
-.button {
+@include red-button(button) {
   box-shadow: none;
+  padding-inline: 1.5rem;
 }

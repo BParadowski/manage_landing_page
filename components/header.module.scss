@@ -31,53 +31,73 @@
 
   .nav {
     flex: auto;
-  }
 
-  .navOpen {
-    position: fixed;
-    left: 0;
-    top: 0;
-    z-index: 2;
+    @include mq(mobile-only) {
+      &[data-isOpen="true"] {
+        position: fixed;
+        left: 0;
+        top: 0;
+        z-index: 2;
 
-    &::before {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100vh;
-      width: 100vw;
-      content: "";
-      background-image: linear-gradient(transparent, var(--clr-v-dark-blue));
-      z-index: 1;
-    }
-
-    @include mq(medium) {
-      position: static;
-      flex: auto;
-      &:before {
-        display: none;
+        &::before {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100vh;
+          width: 100vw;
+          opacity: 0.75;
+          content: "";
+          background-image: linear-gradient(
+            transparent,
+            var(--clr-v-dark-blue)
+          );
+          z-index: 1;
+          pointer-events: none;
+        }
       }
     }
   }
 
   .links {
-    display: none;
+    display: flex;
     justify-content: center;
-    gap: clamp(0.5rem, 0.3vw + 1rem, var(--gap-200));
+    gap: clamp(0.3rem, 0.3vw + 1rem, var(--gap-200));
     @include mq(medium) {
       display: flex;
     }
-  }
 
-  .linksOpen {
-    display: flex;
-    flex-direction: column;
+    @include mq(mobile-only) {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      background-color: var(--clr-v-light-gray);
+      position: fixed;
+      inset: 5rem var(--margin-inline-min) auto;
+      z-index: 10;
+      gap: 1.5rem;
 
-    @include mq(medium) {
-      flex-direction: row;
-      justify-content: center;
-      gap: clamp(0.5rem, 0.3vw + 1rem, var(--gap-200));
+      font-size: var(--fs-400);
+      color: var(--clr-dark-blue);
+      font-weight: var(--fw-semi-bold);
+
+      border-radius: 0.25rem;
+      padding: 2.5rem;
+
+      &[data-isOpen="true"] {
+        display: flex;
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+
+      &:hover {
+        opacity: 0.5;
+      }
     }
   }
+
   .button {
     display: none;
 
@@ -86,8 +106,7 @@
     }
   }
 
-  .mobileNav,
-  .mobileNavOpen {
+  .mobile-nav-button {
     background-color: transparent;
     background-size: contain;
     background-repeat: no-repeat;
@@ -102,13 +121,12 @@
     transform: translateY(-4px);
 
     @include mq(medium) {
-      visibility: hidden;
+      display: none;
     }
-  }
-  .mobileNav {
     background-image: url("../public/images/icon-hamburger.svg");
-  }
-  .mobileNavOpen {
-    background-image: url("../public/images/icon-close.svg");
+
+    &[aria-expanded="true"] {
+      background-image: url("../public/images/icon-close.svg");
+    }
   }
 }

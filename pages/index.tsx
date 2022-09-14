@@ -1,5 +1,4 @@
 import type { NextPage } from "next";
-import Slider from "../components/home/Slider";
 import { EmblaCarousel } from "../components/home/EmblaCarousel";
 import Head from "next/head";
 import Image from "next/image";
