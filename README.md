@@ -7,7 +7,7 @@ A typical landing page project. Built with:
 - CSS modules
 - Embla Carousel
 
-[Live preview](https://manage-landing-page-olive.vercel.app/).
+[Live preview](https://manage-landing-page-bparadowski.vercel.app/).
 
 ## Main aims
 
