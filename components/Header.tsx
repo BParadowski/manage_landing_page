@@ -17,11 +17,11 @@ export default function Header() {
           </a>
         </Link>
 
-        <nav aria-label="Primary" className={styles.nav} data-isOpen={menuOpen}>
+        <nav aria-label="Primary" className={styles.nav} data-isopen={menuOpen}>
           <ul
             role="list"
             className={styles.links}
-            data-isOpen={menuOpen}
+            data-isopen={menuOpen}
             id="primary-navigation"
           >
             <li>

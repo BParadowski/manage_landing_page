@@ -1,6 +1,54 @@
 @use "../styles/mixins" as *;
+@use "sass:list";
 
-@include red-button(button) {
-  box-shadow: none;
-  padding-inline: 1.5rem;
+$icons: ("facebook", "youtube", "twitter", "pinterest", "instagram");
+
+@each $website in $icons {
+  .#{$website} {
+    background-image: url("../public/images/icon-#{$website}.svg");
+  }
+}
+.footer {
+  background-color: var(--clr-v-dark-blue);
+  color: var(--clr-v-light-gray);
+
+  a {
+    font: inherit;
+    text-decoration: none;
+    color: var(--clr-v-light-gray);
+    &:hover {
+      color: var(--clr-bright-red);
+    }
+  }
+  @include red-button(button) {
+    box-shadow: none;
+    padding-inline: 1.5rem;
+  }
+  @include container;
+
+  .grid {
+    display: grid;
+    grid-auto-flow: column;
+
+    .manage-logo {
+    }
+    .logos {
+      display: flex;
+      li {
+        .logo {
+          transform: scale(1.6);
+          fill: var(--clr-v-light-gray);
+
+          @include mq(mobile-only) {
+            transform: scale(1);
+          }
+        }
+        &:hover {
+          .logo {
+            fill: var(--clr-bright-red);
+          }
+        }
+      }
+    }
+  }
 }
