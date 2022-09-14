@@ -3,6 +3,7 @@
 $media-queries: (
   "mobile-only": "max-width: 50em",
   "small-only": "max-width: 32.5em",
+  "small": "min-width: 32.5em",
   "medium": "min-width: 50em",
 );
 

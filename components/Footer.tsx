@@ -111,32 +111,42 @@ export default function Footer() {
             <nav className={styles.links}>
               <ul role="list" className={styles["links-column-one"]}>
                 <li>
-                  <Link href="/#">
+                  <Link href="/">
                     <a>Home</a>
                   </Link>
                 </li>
                 <li>
-                  <Link href="/pricing">
+                  <Link href="/">
                     <a>Pricing</a>
                   </Link>
                 </li>
                 <li>
-                  <a href="#">Products</a>
+                  <Link href="/">
+                    <a>Products</a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#">About us</a>
+                  <Link href="/">
+                    <a>About us</a>
+                  </Link>
                 </li>
               </ul>
 
               <ul role="list" className={styles["links-column-two"]}>
                 <li>
-                  <a href="#">Careers</a>
+                  <Link href="/">
+                    <a>Careers</a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#">Community</a>
+                  <Link href="/">
+                    <a>Community</a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#">Privacy Policy</a>
+                  <Link href="/">
+                    <a>Privacy Policy</a>
+                  </Link>
                 </li>
               </ul>
             </nav>

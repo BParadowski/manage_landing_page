@@ -25,7 +25,7 @@ export default function Header() {
             id="primary-navigation"
           >
             <li>
-              <Link href="/pricing">
+              <Link href="/">
                 <a>Pricing </a>
               </Link>
             </li>
