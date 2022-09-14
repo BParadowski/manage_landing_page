@@ -1,0 +1,14 @@
+@use "../../styles/mixins" as *;
+
+.carousel {
+  overflow: hidden;
+  .viewport {
+    @include mq(small-only) {
+      margin-inline: var(--margin-inline-min);
+    }
+    .container {
+      display: flex;
+      gap: 30px;
+    }
+  }
+}

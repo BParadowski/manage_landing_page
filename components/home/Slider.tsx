@@ -10,12 +10,14 @@ import shanai from "../../public/images/avatar-shanai.png";
 
 // Import Swiper styles
 import "swiper/css";
+import "swiper/css/pagination";
 
 export default function Slider() {
   return (
     <Swiper
       modules={[Pagination]}
       spaceBetween={30}
+      loop={true}
       breakpoints={{
         560: {
           slidesPerView: 2,
@@ -25,11 +27,14 @@ export default function Slider() {
         },
       }}
       slidesPerView={1}
+      centeredSlides={true}
       allowSlideNext={true}
       allowSlidePrev={true}
-      pagination={{ clickable: true, type: "bullets", el: ".pagination-dots" }}
-      onSlideChange={() => console.log("slide change")}
-      onSwiper={(swiper) => console.log(Pagination)}
+      pagination={{
+        el: ".pagination-dots",
+        type: "bullets",
+        bulletClass: "dot",
+      }}
     >
       <SwiperSlide className={styles.slide}>
         <div className={styles.card}>
@@ -83,12 +88,18 @@ export default function Slider() {
           </p>
         </div>
       </SwiperSlide>
-      <div className={`.pagination-dots ${styles.pagination}`}>
-        <button className={`swiper-pagination-bullet ${styles.dot}`}></button>
-        <button className={`swiper-pagination-bullet ${styles.dot}`}></button>
-        <button className={`swiper-pagination-bullet ${styles.dot}`}></button>
-        <button className={`swiper-pagination-bullet ${styles.dot}`}></button>
+      <div className="pagination-dots">
+        <span className="dot"></span>
+        <span className="dot"></span>
+        <span className="dot"></span>
+        <span className="dot"></span>
       </div>
+      {/* <div className={`.pagination-dots ${styles.pagination}`}>
+        <button className={`swiper-pagination-bullet ${styles.dot}`}></button>
+        <button className={`swiper-pagination-bullet ${styles.dot}`}></button>
+        <button className={`swiper-pagination-bullet ${styles.dot}`}></button>
+        <button className={`swiper-pagination-bullet ${styles.dot}`}></button>
+      </div> */}
     </Swiper>
   );
 }

@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import Slider from "../components/home/Slider";
+import { EmblaCarousel } from "../components/home/EmblaCarousel";
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/pages/Home.module.scss";
@@ -84,7 +85,7 @@ const Home: NextPage = () => {
         </div>
         {/* Slider is outside of the container so 
         that it can go over the whole page length*/}
-        <Slider />
+        <EmblaCarousel />
         <div className={styles.container}>
           <button className={styles.button}>Get Started</button>
         </div>
