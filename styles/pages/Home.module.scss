@@ -276,6 +276,10 @@
   .button {
     margin-top: 3rem;
   }
+
+  @include mq(medium) {
+    margin-top: 9rem;
+  }
 }
 
 .cta {
