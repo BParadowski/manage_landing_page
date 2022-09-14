@@ -9,6 +9,39 @@
     .container {
       display: flex;
       gap: 30px;
+      padding-right: 30px;
+    }
+  }
+
+  .nav-wrapper {
+    display: flex;
+    justify-content: center;
+    .mobile-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 1.7rem;
+      width: 5rem;
+      .bullet {
+        height: 0.7rem;
+        width: 0.7rem;
+        border: 1px solid var(--clr-bright-red);
+        border-radius: 50%;
+        cursor: pointer;
+
+        &[data-selected="true"] {
+          background-color: var(--clr-bright-red);
+        }
+      }
+
+      @include mq(small-only) {
+        margin-top: 1rem;
+        width: 3rem;
+        .bullet {
+          height: 0.5rem;
+          width: 0.5rem;
+        }
+      }
     }
   }
 }

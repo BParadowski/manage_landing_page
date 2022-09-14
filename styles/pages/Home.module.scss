@@ -222,9 +222,14 @@
   .container {
     text-align: center;
   }
+
+  .button {
+    margin-top: 3rem;
+  }
 }
 
 .cta {
+  margin-top: 2.7rem;
   height: 25rem;
 
   background-color: var(--clr-bright-red);
@@ -255,6 +260,7 @@
   }
 
   @include mq(medium) {
+    margin-top: 9rem;
     height: 14rem;
     background-size: cover;
     background-position: center;

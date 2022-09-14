@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
 import useEmblaCarousel from "embla-carousel-react";
 import Slide from "./Slide";
@@ -10,15 +10,25 @@ import richard from "../../public/images/avatar-richard.png";
 import shanai from "../../public/images/avatar-shanai.png";
 
 export const EmblaCarousel = () => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+  const [emblaRef, emblaApi] = useEmblaCarousel({ startIndex: 1 });
+  const [currentIndex, setCurrentIndex] = useState(1);
 
-  const scrollPrev = useCallback(() => {
-    if (emblaApi) emblaApi.scrollPrev();
+  useEffect(() => {
+    if (emblaApi) {
+      emblaApi.on("select", () =>
+        setCurrentIndex(emblaApi.selectedScrollSnap())
+      );
+    }
   }, [emblaApi]);
 
-  const scrollNext = useCallback(() => {
-    if (emblaApi) emblaApi.scrollNext();
-  }, [emblaApi]);
+  const scrollTo = useCallback(
+    (index: number) => {
+      if (emblaApi) {
+        emblaApi.scrollTo(index);
+      }
+    },
+    [emblaApi]
+  );
 
   return (
     <div className={styles.carousel}>
@@ -54,12 +64,20 @@ export const EmblaCarousel = () => {
           />
         </div>
       </div>
-      <button className="embla__prev" onClick={scrollPrev}>
-        Prev
-      </button>
-      <button className="embla__next" onClick={scrollNext}>
-        Next
-      </button>
+
+      <div className={styles["nav-wrapper"]}>
+        <div className={styles["mobile-nav"]}>
+          {[0, 1, 2, 3].map((number) => (
+            <button
+              type="button"
+              key={number}
+              className={styles.bullet}
+              onClick={() => scrollTo(number)}
+              data-selected={currentIndex === number}
+            ></button>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };
