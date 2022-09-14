@@ -1,7 +1,7 @@
 import { NextPage } from "next";
 
 const Pricing: NextPage = () => {
-  return <main>Here pricing page would go, alas no content will be shown</main>;
+  return <main>{"This page doesn't exist, sory."}</main>;
 };
 
 export default Pricing;
