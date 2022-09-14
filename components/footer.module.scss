@@ -66,6 +66,7 @@
       }
 
       .links {
+        font-size: var(--fs-nav);
         display: flex;
         gap: clamp(0.5rem, 3vw + 0.7rem, 3rem);
         ul {
