@@ -16,6 +16,9 @@
 }
 
 .section-primary {
+  @include mq(medium) {
+    margin-top: 3.5rem;
+  }
   .collumns {
     display: grid;
     gap: var(--gap-100);
