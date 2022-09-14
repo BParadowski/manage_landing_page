@@ -7,6 +7,8 @@ A typical landing page project. Built with:
 - CSS modules
 - Embla Carousel
 
+[Live preview](https://manage-landing-page-olive.vercel.app/).
+
 ## Main aims
 
 - Make the layout fully responsive. It is supposed to look good on any screen size.
