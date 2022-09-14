@@ -22,7 +22,9 @@ const Home: NextPage = () => {
                 Manage makes it simple for software teams to plan day-to-day
                 tasks while keeping the larger team goals in view.
               </p>
-              <button className={styles.button}>Get Started</button>
+              <div className={styles["button-container"]}>
+                <button className={styles.button}>Get Started</button>
+              </div>
             </div>
             <div className={styles.picture}>
               <Image

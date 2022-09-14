@@ -8,8 +8,8 @@
   --clr-grayish-blue: hsl(227, 12%, 61%);
   --clr-v-dark-blue: hsl(233, 12%, 13%);
   --clr-v-pale-red: hsl(13, 100%, 96%);
-  --clr-v-light-gray: #fafafa;
-  --clr-light-gray: #97979709;
+  --clr-v-light-gray: white;
+  --clr-light-gray: #fafafa;
 
   --ff-primary: "Be Vietnam Pro", sans-serif;
 
@@ -53,4 +53,10 @@
 
   font-size: 16px;
   font-family: var(--ff-primary);
+}
+
+body,
+html {
+  max-width: 100vw;
+  overflow-x: hidden;
 }

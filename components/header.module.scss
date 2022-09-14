@@ -20,6 +20,8 @@
   }
 
   .logo {
+    z-index: 10;
+
     width: 110px;
     height: 18px;
 
@@ -31,6 +33,7 @@
 
   .nav {
     flex: auto;
+    z-index: 10;
 
     @include mq(mobile-only) {
       &[data-isOpen="true"] {
@@ -100,6 +103,7 @@
 
   .button {
     display: none;
+    z-index: 10;
 
     @include mq(medium) {
       display: block;

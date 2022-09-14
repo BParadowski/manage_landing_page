@@ -31,6 +31,7 @@
 
     .text {
       grid-area: text;
+      position: relative;
 
       display: flex;
       flex-direction: column;
@@ -38,12 +39,14 @@
       align-items: center;
 
       h1 {
+        z-index: 1;
         font-size: var(--fs-primary-heading);
         font-weight: var(--fw-bold);
         line-height: 1.2;
       }
 
       p {
+        z-index: 1;
         font-size: var(--fs-400);
         opacity: 0.5;
         margin-top: 1rem;
@@ -52,8 +55,28 @@
         padding-inline: 0.5rem;
       }
 
-      button {
-        margin-top: 2rem;
+      .button-container {
+        button {
+          margin-top: 2rem;
+          z-index: 1;
+        }
+
+        isolation: isolate;
+        position: relative;
+
+        // the pill shape
+        &::after {
+          @include mq(mobile-only) {
+            content: url("../../public/images/bg-tablet-pattern.svg");
+            z-index: -1;
+            transform: scale(0.5);
+            position: absolute;
+
+            left: -60%;
+            bottom: -18rem;
+            pointer-events: none;
+          }
+        }
       }
 
       @include mq(medium) {
@@ -72,6 +95,17 @@
 
     .picture {
       grid-area: picture;
+      position: relative;
+      isolation: isolate;
+
+      // the pill shape
+      &::before {
+        content: url("../../public/images/bg-tablet-pattern.svg");
+        position: absolute;
+        z-index: -1;
+        left: 10%;
+        bottom: 15%;
+      }
     }
   }
 }
@@ -92,6 +126,8 @@
     justify-self: center;
     display: grid;
     place-content: start;
+    position: relative;
+    z-index: 0;
 
     h2 {
       font-size: var(--fs-secondary-heading);
@@ -114,6 +150,17 @@
       p {
         margin-top: 1.5rem;
         max-width: 32ch;
+      }
+    }
+
+    // the pill shape
+    @include mq(medium) {
+      &::before {
+        content: url("../../public/images/bg-tablet-pattern.svg");
+        position: absolute;
+        z-index: -11;
+        right: 80%;
+        top: 50%;
       }
     }
   }
