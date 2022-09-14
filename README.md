@@ -5,6 +5,7 @@ A typical landing page project. Built with:
 - Next.js
 - SCSS
 - CSS modules
+- Embla Carousel
 
 ## Main aims
 
