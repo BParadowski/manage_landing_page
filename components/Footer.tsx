@@ -111,7 +111,7 @@ export default function Footer() {
             <nav className={styles.links}>
               <ul role="list" className={styles["links-column-one"]}>
                 <li>
-                  <Link href="/">
+                  <Link href="/#">
                     <a>Home</a>
                   </Link>
                 </li>
